@@ -1,23 +1,31 @@
-/* const person: {
-  name: string;
-  age: number;
-} = {
-  name: 'Maximilian',
-  age: 30,
-};
- */
+// in JavaScript:
+/* const ADMIN = 0;
+const READ_ONLY = 1;
+const AUTHOR = 2; */
 
-const person: {
-  name: string;
-  age: number;
-  hobbies: string[];
-  role: [number, string];
-} = {
+// in TypeScript:
+enum Role {
+  ADMIN = 5,
+  READ_ONLY,
+  AUTHOR,
+}
+
+const person = {
   name: 'Maximilian',
   age: 30,
   hobbies: ['Sports', 'Cooking'],
-  role: [2, 'author'], // we want this to be an array of exactly 2 elements, first being a number and second a string => change it to tuple
+  role: Role.ADMIN,
 };
+
+if (person.role === Role.ADMIN) {
+  console.log('is admin');
+} else if (person.role === Role.READ_ONLY) {
+  console.log('is read only');
+} else if (person.role === Role.AUTHOR) {
+  console.log('is author');
+} else {
+  console.log('error');
+}
 
 console.log(person.name);
 
